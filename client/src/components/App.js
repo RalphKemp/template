@@ -9,7 +9,7 @@ import Landing from './Landing';
 class App extends Component {
 
   componentDidMount() {
-    // this.props.fetchUser();
+    this.props.fetchUser();
   }
 
   render() {
@@ -26,4 +26,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, actions)(App);
