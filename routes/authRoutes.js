@@ -15,7 +15,7 @@ module.exports = app => {
     '/auth/google/callback',
     passport.authenticate('google'),
     (req, res) => {
-      res.redirect('/api/current_user');
+      res.redirect('/');
     }
   );
 
@@ -32,18 +32,18 @@ module.exports = app => {
     '/auth/facebook/callback',
     passport.authenticate('facebook'),
     (req, res) => {
-      res.redirect('/api/current_user');
+      res.redirect('/');
     }
   );
 
   //---------//
 
-  app.get('/api/logout', (req, res) => {
+  app.get('/auth/logout', (req, res) => {
     req.logout();
     res.redirect('/');
   });
 
-  app.get('/api/current_user', (req, res) => {
+  app.get('/auth/current_user', (req, res) => {
     res.send(req.user);
   });
 };
