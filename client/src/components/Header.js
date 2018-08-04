@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
   render() {
-    return <div class="header-div">this is a tasty header</div>;
+    return <div className="header-div">this is a tasty header</div>;
   }
 }
 
