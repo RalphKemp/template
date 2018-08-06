@@ -1,7 +1,46 @@
-.header-div {
-  color: green;
+* {
+  box-sizing: border-box;
 }
 
-.landing {
-  color: pink;
+body {
+  margin: 0px !important;
 }
+
+/*HEADER*/
+
+.header-div {
+  width: 100%;
+  height: 45px;
+  background-color: #d9dce0;
+  color: #262626;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-div a {
+  text-decoration: none;
+}
+
+.header-content-right {
+  display: flex;
+  list-style: none;
+}
+
+.header-content-right a {
+  text-decoration: none;
+  font-size: 12px;
+  margin: 5px;
+}
+
+.header-content-right:last-child {
+  margin-right: 5px;
+}
+
+.header-content-left {
+  margin-left: 10px;
+}
+
+
+/*LANDING*/
+
