@@ -16,7 +16,7 @@ class Header extends Component {
 
     const animateTwo = () => {
       TweenMax.to('#F', 0.2, { left: 20 });
-      TweenMax.to('#T', 0.2, { left: -20 });
+      TweenMax.to('#T', 0.2, { left: -18 });
       TweenMax.to('#O', 0.2, { opacity: 0 });
       TweenMax.to('#E', 0.2, { opacity: 0 });
     };
