@@ -19,13 +19,14 @@ class Header extends Component {
             <a href="/">posts</a>
           </li>,
           <li key="2">
-            <a href="/auth/logout">Logout</a>
+            <a href="/api/logout">Logout</a>
           </li>
         ];
     }
   }
 
   render() {
+    console.log(this.props.auth);
     return (
       <nav>
         <div className="header-div">

@@ -44,3 +44,11 @@ body {
 
 /*LANDING*/
 
+.landing {
+  width: 100%;
+  height: calc(100vh - 45px);
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
