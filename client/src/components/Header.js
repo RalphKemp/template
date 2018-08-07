@@ -38,7 +38,7 @@ class Header extends Component {
       default:
         return [
           <li key="1">
-            <a href="/">about</a>
+            <Link to={'about'}>about</Link>
           </li>,
           <li key="2">
             <a href="/api/logout">Logout</a>
