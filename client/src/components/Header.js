@@ -15,7 +15,7 @@ class Header extends Component {
     };
 
     const animateTwo = () => {
-      TweenMax.to('#F', 0.2, { left: 20 });
+      TweenMax.to('#F', 0.2, { left: 21 });
       TweenMax.to('#T', 0.2, { left: -18 });
       TweenMax.to('#O', 0.2, { opacity: 0 });
       TweenMax.to('#E', 0.2, { opacity: 0 });
@@ -38,7 +38,7 @@ class Header extends Component {
       default:
         return [
           <li key="1">
-            <a href="/">posts</a>
+            <Link to={'about'}>about</Link>
           </li>,
           <li key="2">
             <a href="/api/logout">Logout</a>
