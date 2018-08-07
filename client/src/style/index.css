@@ -11,7 +11,7 @@ body {
 .header-div {
   width: 100%;
   height: 65px;
-  background-color: #d9dce0;
+  background-color: #f9f9f9;
   color: #262626;
   display: flex;
   justify-content: space-between;
@@ -25,12 +25,15 @@ body {
 .header-content-right {
   display: flex;
   list-style: none;
+  margin-right: 15px;
 }
 
 .header-content-right a {
   text-decoration: none;
   font-size: 12px;
   margin: 5px;
+  font-family: "Work Sans", sans-serif;
+  font-weight: lighter;
 }
 
 .header-content-right:last-child {
@@ -50,6 +53,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Work Sans", sans-serif;
+  font-weight: lighter;
 }
 
 /*LOGO*/
@@ -66,6 +71,8 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-family: "Work Sans", sans-serif;
+  font-weight: bold;
 }
 
 #logo-display p {
