@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const keys = require('./config/keys');
 const passport = require('passport');
+const sslRedirect = require('heroku-ssl-redirect');
 require('./models/User');
 require('./services/passport');
 
@@ -21,6 +22,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(sslRedirect());
 
 require('./routes/authRoutes')(app);
 
