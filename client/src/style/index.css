@@ -25,7 +25,6 @@ body {
 .header-content-right {
   display: flex;
   list-style: none;
-  margin-right: 15px;
 }
 
 .header-content-right a {
@@ -34,10 +33,15 @@ body {
   margin: 5px;
   font-family: "Work Sans", sans-serif;
   font-weight: lighter;
+  margin-right: 10px;
+}
+
+.header-content-right a:hover {
+  color: #a25151;
 }
 
 .header-content-right:last-child {
-  margin-right: 5px;
+  margin-right: 20px;
 }
 
 .header-content-left {
