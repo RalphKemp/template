@@ -46,7 +46,7 @@ body {
 
 /*LANDING*/
 
-.landing {
+.landing, .dashboard {
   width: 100%;
   height: calc(100vh - 65px);
   background-color: #f9f9f9;
@@ -86,11 +86,11 @@ body {
 }
 
 #F {
-  left: 20px;
+  left: 21px;
 }
 
 #T {
-  left: -17px;
+  left: -18px;
 }
 
 
