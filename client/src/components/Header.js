@@ -2,8 +2,43 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { TweenMax } from 'gsap/TweenMax';
+import Modal from 'react-modal';
+
+const authModalStyles = {
+  content : {
+
+  }
+};
+
+// https://github.com/reactjs/react-modal#demos
+
+Modal.setAppElement('#root');
 
 class Header extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      modalIsOpen: false
+    }
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+   openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    this.subtitle.style.color = '#fff';
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
   componentDidMount() {
     const logo = document.getElementById('logo-display');
 
@@ -31,8 +66,18 @@ class Header extends Component {
         return;
       case false:
         return (
-          <li>
-            <a href="/auth/google">Login with Google</a>
+          <li className="auth-modal" onClick={this.openModal}>
+            Login
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              onAfterOpen={this.afterOpenModal}
+              onRequestClose={this.closeModal}
+              style={authModalStyles}
+            >
+              <button onClick={this.closeModal}>close</button>
+              <a href="/auth/google">Login with Google</a>
+              <a href="/auth/facebook">Login with Facebook</a>
+            </Modal>
           </li>
         );
       default:
