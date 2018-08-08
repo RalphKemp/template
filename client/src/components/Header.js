@@ -4,15 +4,6 @@ import { Link } from 'react-router-dom';
 import { TweenMax } from 'gsap/TweenMax';
 import Modal from 'react-modal';
 
-const authModalStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto'
-  }
-};
-
 Modal.setAppElement('#root');
 
 class Header extends Component {
@@ -23,16 +14,11 @@ class Header extends Component {
       modalIsOpen: false
     };
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   openModal() {
     this.setState({ modalIsOpen: true });
-  }
-
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
   }
 
   handleCloseModal() {
@@ -66,17 +52,24 @@ class Header extends Component {
         return;
       case false:
         return (
-          <li className="auth-modal">
+          <li className="auth-modal-li">
             <p onClick={this.openModal}>Login</p>
             <Modal
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
-              style={authModalStyles}
+              className="auth-modal"
               onRequestClose={this.handleCloseModal}
             >
-              <button onClick={this.handleCloseModal} className="modal-close-button">X</button>
-              <a href="/auth/google">Login with Google</a>
-              <a href="/auth/facebook">Login with Facebook</a>
+              <button
+                onClick={this.handleCloseModal}
+                className="modal-close-button"
+              >
+                x
+              </button>
+              <div className="modal-content">
+                <a href="/auth/google">Login with Google</a>
+                <a href="/auth/facebook">Login with Facebook</a>
+              </div>
             </Modal>
           </li>
         );
