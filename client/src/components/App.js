@@ -20,7 +20,7 @@ class App extends Component {
         <BrowserRouter>
           <div id="sub-container">
             <Header />
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/" component={this.props.auth ? Dashboard : Landing} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/about" component={About} />
           </div>
@@ -30,4 +30,8 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App);
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
+export default connect(mapStateToProps, actions)(App);
