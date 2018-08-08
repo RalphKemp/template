@@ -32,13 +32,23 @@ body {
   padding: 0px !important;
 }
 
-.header-content-right a {
+.auth-modal p, .header-content-right a {
   text-decoration: none;
   font-size: 13px;
   margin: 5px;
   font-family: "Work Sans", sans-serif;
   font-weight: lighter;
   margin-right: 10px;
+  cursor: pointer;
+  color: #262626;
+}
+
+.auth-modal p, .header-content-right a :visited {
+  color: #262626;
+}
+
+.modal-close-button {
+  cursor: pointer;
 }
 
 .header-content-right a:hover {

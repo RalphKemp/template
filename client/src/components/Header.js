@@ -5,12 +5,13 @@ import { TweenMax } from 'gsap/TweenMax';
 import Modal from 'react-modal';
 
 const authModalStyles = {
-  content : {
-
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto'
   }
 };
-
-// https://github.com/reactjs/react-modal#demos
 
 Modal.setAppElement('#root');
 
@@ -20,23 +21,22 @@ class Header extends Component {
 
     this.state = {
       modalIsOpen: false
-    }
+    };
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
-   openModal() {
-    this.setState({modalIsOpen: true});
+  openModal() {
+    this.setState({ modalIsOpen: true });
   }
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#fff';
   }
 
-  closeModal() {
-    this.setState({modalIsOpen: false});
+  handleCloseModal() {
+    this.setState({ modalIsOpen: false });
   }
 
   componentDidMount() {
@@ -66,15 +66,15 @@ class Header extends Component {
         return;
       case false:
         return (
-          <li className="auth-modal" onClick={this.openModal}>
-            Login
+          <li className="auth-modal">
+            <p onClick={this.openModal}>Login</p>
             <Modal
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
-              onRequestClose={this.closeModal}
               style={authModalStyles}
+              onRequestClose={this.handleCloseModal}
             >
-              <button onClick={this.closeModal}>close</button>
+              <button onClick={this.handleCloseModal} className="modal-close-button">X</button>
               <a href="/auth/google">Login with Google</a>
               <a href="/auth/facebook">Login with Facebook</a>
             </Modal>
