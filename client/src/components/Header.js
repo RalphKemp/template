@@ -3,14 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { TweenMax } from 'gsap/TweenMax';
 import Modal from 'react-modal';
-
-const authModalStyles = {
-  content : {
-
-  }
-};
-
-// https://github.com/reactjs/react-modal#demos
+import FontAwesome from 'react-fontawesome';
 
 Modal.setAppElement('#root');
 
@@ -20,23 +13,17 @@ class Header extends Component {
 
     this.state = {
       modalIsOpen: false
-    }
+    };
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
-   openModal() {
-    this.setState({modalIsOpen: true});
+  openModal() {
+    this.setState({ modalIsOpen: true });
   }
 
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#fff';
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
+  handleCloseModal() {
+    this.setState({ modalIsOpen: false });
   }
 
   componentDidMount() {
@@ -66,17 +53,24 @@ class Header extends Component {
         return;
       case false:
         return (
-          <li className="auth-modal" onClick={this.openModal}>
-            Login
+          <li className="auth-modal-li">
+            <p onClick={this.openModal}>Login</p>
             <Modal
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
-              onRequestClose={this.closeModal}
-              style={authModalStyles}
+              className="auth-modal"
+              onRequestClose={this.handleCloseModal}
             >
-              <button onClick={this.closeModal}>close</button>
-              <a href="/auth/google">Login with Google</a>
-              <a href="/auth/facebook">Login with Facebook</a>
+              <button
+                onClick={this.handleCloseModal}
+                className="modal-close-button"
+              >
+                <FontAwesome name="window-close"/>
+              </button>
+              <div className="modal-content">
+                <a href="/auth/google">Login with Google</a>
+                <a href="/auth/facebook">Login with Facebook</a>
+              </div>
             </Modal>
           </li>
         );

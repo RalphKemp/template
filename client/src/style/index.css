@@ -32,13 +32,55 @@ body {
   padding: 0px !important;
 }
 
-.header-content-right a {
+.auth-modal-li p, .header-content-right a {
   text-decoration: none;
   font-size: 13px;
   margin: 5px;
   font-family: "Work Sans", sans-serif;
   font-weight: lighter;
   margin-right: 10px;
+  cursor: pointer;
+  color: #262626;
+}
+
+.auth-modal-li p, .header-content-right a :visited {
+  color: #262626;
+}
+
+.auth-modal {
+  position: absolute;
+  outline: none;
+  border-radius: 10px;
+  top: 10%;
+  left: calc(50% - 100px);
+  right: auto;
+  bottom: auto;
+  width: 200px;
+  height: 210px;
+  background-color: #efefef;
+}
+
+.modal-content {
+  position:  relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: red;
+  border-radius: 10px;
+  outline: none;
+  border:  none;
+  color: white;
 }
 
 .header-content-right a:hover {
