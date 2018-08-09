@@ -56,12 +56,12 @@ body {
   right: auto;
   bottom: auto;
   width: 200px;
-  height: 210px;
-  background-color: #efefef;
+  height: 144px;
+  background-color: #e4e4e4;
+  box-shadow: 3px 3px 6px -1px #efefef;
 }
 
 .modal-content {
-  position:  relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,18 +70,55 @@ body {
   width: 100%;
 }
 
+.modal-content * {
+  text-align: center !important;
+  vertical-align: middle;
+}
+
+.modal-content a {
+  font-family: "Work Sans", sans-serif;
+  font-weight: lighter;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+}
+
+.modal-content > div {
+  height: 43px !important;
+  width: 80%;
+}
+
 .modal-close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -13px;
+  right: -14px;
   cursor: pointer;
   font-size: 16px;
-  background-color: red;
+  background-color: #f9adad;
+  padding: 5px 10px;
   border-radius: 10px;
-  outline: none;
-  border:  none;
+  outline: none !important;
+  border: none;
   color: white;
 }
+
+.ReactModalPortal > div {
+  opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+  transition: opacity 200ms ease-in-out;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1 !important;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0 !important;
+}
+
 
 .header-content-right a:hover {
   color: #a25151;
@@ -143,7 +180,6 @@ body {
 #T {
   left: -18px;
 }
-
 
 #O, #E {
   opacity: 0;

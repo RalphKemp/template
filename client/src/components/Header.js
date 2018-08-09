@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { TweenMax } from 'gsap/TweenMax';
 import Modal from 'react-modal';
-import FontAwesome from 'react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FacebookLoginButton } from "react-social-login-buttons";
+import { GoogleLoginButton } from "react-social-login-buttons";
 
 Modal.setAppElement('#root');
 
@@ -58,18 +60,23 @@ class Header extends Component {
             <Modal
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
-              className="auth-modal"
               onRequestClose={this.handleCloseModal}
+              closeTimeoutMS={100}
+              className="auth-modal"
             >
               <button
                 onClick={this.handleCloseModal}
                 className="modal-close-button"
               >
-                <FontAwesome name="window-close"/>
+                <FontAwesomeIcon icon="times" color="black" size="sm" />
               </button>
               <div className="modal-content">
-                <a href="/auth/google">Login with Google</a>
-                <a href="/auth/facebook">Login with Facebook</a>
+                <FacebookLoginButton>
+                  <a href="/auth/google">Google Login</a>
+                </FacebookLoginButton>
+                <GoogleLoginButton>
+                  <a href="/auth/facebook">Facebook Login</a>
+                </GoogleLoginButton>
               </div>
             </Modal>
           </li>
