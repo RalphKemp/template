@@ -59,6 +59,7 @@ class Header extends Component {
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.handleCloseModal}
+              closeTimeoutMS={100}
               className="auth-modal"
             >
               <button
@@ -68,8 +69,12 @@ class Header extends Component {
                 <FontAwesomeIcon icon="times" color="white" size="sm" />
               </button>
               <div className="modal-content">
-                <a href="/auth/google" className="loginBtn loginBtn-google">Login with Google</a>
-                <a href="/auth/facebook" className="loginBtn loginBtn-facebook">Login with Facebook</a>
+                <button className="loginBtn loginBtn-google">
+                  <a href="/auth/google">Login with Google</a>
+                </button>
+                <button className="loginBtn loginBtn-facebook">
+                  <a href="/auth/facebook">Login with Facebook</a>
+                </button>
               </div>
             </Modal>
           </li>

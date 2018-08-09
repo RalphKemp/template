@@ -79,10 +79,28 @@ body {
   background-color: #d25b5b;
   padding: 5px 10px;
   border-radius: 10px;
-  outline: none;
+  outline: none !important;
   border:  none;
   color: white;
 }
+
+.ReactModalPortal > div {
+  opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+  transition: opacity 200ms ease-in-out;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1 !important;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0 !important;
+}
+
 
 .header-content-right a:hover {
   color: #a25151;
