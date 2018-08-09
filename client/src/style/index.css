@@ -61,34 +61,34 @@ body {
   box-shadow: 1px 1px 5px 1px #cecece;
 }*/
 
-.modal-content {
+/*.modal-content {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100%;
   width: 100%;
-}
+}*/
 
-.modal-content * {
+/*.modal-content * {
   text-align: center !important;
   line-height: 11px !important;
-}
+}*/
 
-.modal-content a {
+/*.modal-content a {
   font-family: "Work Sans", sans-serif;
   font-weight: lighter;
   text-decoration: none;
   color: white;
   font-size: 12px;
-}
+}*/
 
-.modal-content > div {
+/*.modal-content > div {
   height: 43px !important;
   width: 80%;
-}
+}*/
 
-.modal-close-button {
+/*.modal-close-button {
   position: absolute;
   top: -13px;
   right: -14px;
@@ -100,7 +100,7 @@ body {
   outline: none !important;
   border: none;
   color: white;
-}
+}*/
 
 .ReactModalPortal > div {
   opacity: 0;
@@ -120,17 +120,10 @@ body {
 }
 
 
-.header-content-right a:hover {
-  color: #a25151;
-}
 
-.header-content-right:last-child {
-  margin-right: 20px;
-}
 
-.header-content-left {
-  margin-left: 10px;
-}
+
+
 
 /*LANDING*/
 
@@ -147,7 +140,7 @@ body {
 
 /*LOGO*/
 
-#logo-display {
+/*#logo-display {
   position: relative;
   height: 65px;
   width: 150px;
@@ -167,7 +160,7 @@ body {
   text-decoration: none;
   position: relative;
   margin: 1px;
-}
+}*/
 
 #display p {
   position: relative;

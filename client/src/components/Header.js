@@ -8,6 +8,7 @@ import { GoogleLoginButton } from 'react-social-login-buttons';
 import styled from 'styled-components';
 import { ReactModalAdapter } from '../helpers/ReactModalAdapter';
 import { animate } from '../helpers/LogoAnimation';
+import Logo from './Logo';
 
 // styles
 const HeaderDiv = styled.div`
@@ -20,7 +21,7 @@ const HeaderDiv = styled.div`
   align-items: center;
   > a {
     text-decoration: none;
-  }
+  };
 `;
 
 const HeaderContentRight = styled.ul`
@@ -36,10 +37,13 @@ const HeaderContentRight = styled.ul`
     margin-right: 10px;
     cursor: pointer;
     color: #262626;
-    > a :visited {
+  };
+    & p:visited {
       color: #262626;
-    }
-  }
+    };
+    & p:hover {
+      color: #a25151;
+    };
 `;
 
 const AuthModalLi = styled.li`
@@ -52,10 +56,10 @@ const AuthModalLi = styled.li`
     margin-right: 20px;
     cursor: pointer;
     color: #262626;
-    > p :visited {
+  };
+    & a :visited {
       color: #262626;
-    }
-  }
+    };
 `;
 
 const StyledModal = styled(ReactModalAdapter).attrs({
@@ -74,11 +78,50 @@ const StyledModal = styled(ReactModalAdapter).attrs({
     height: 144px;
     background-color: #e4e4e4;
     box-shadow: 1px 1px 5px 1px #cecece;
-  }
+  };
   .Overlay {
     styles: here;
-  }
+  };
 `;
+
+const ModalContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  > * {
+    text-align: center !important;
+    line-height: 11px !important;
+  };
+  & a {
+    font-family: "Work Sans", sans-serif;
+    font-weight: lighter;
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+  };
+  & > div {
+    height: 43px !important;
+    width: 80%;
+  };
+`;
+
+const StyledModalCloseButton = styled.button`
+  position: absolute;
+  top: -13px;
+  right: -14px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #848484;
+  padding: 5px 10px;
+  border-radius: 10px;
+  outline: none !important;
+  border: none;
+  color: white;
+`;
+
 
 Modal.setAppElement('#root');
 
@@ -102,8 +145,8 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    const logo = document.getElementById('logo-display');
-    animate(logo);
+    const
+    console.log(document.getElementById('hey'));
   }
 
   renderContent() {
@@ -120,20 +163,21 @@ class Header extends Component {
               onRequestClose={this.handleCloseModal}
               closeTimeoutMS={100}
             >
-              <button
+              <StyledModalCloseButton
                 onClick={this.handleCloseModal}
-                className="modal-close-button"
               >
                 <FontAwesomeIcon icon="times" color="white" size="sm" />
-              </button>
-              <div className="modal-content">
+              </StyledModalCloseButton>
+
+              <ModalContent>
                 <FacebookLoginButton>
                   <a href="/auth/google">Facebook Log in</a>
                 </FacebookLoginButton>
                 <GoogleLoginButton>
                   <a href="/auth/facebook">Google Log in</a>
                 </GoogleLoginButton>
-              </div>
+              </ModalContent>
+
             </StyledModal>
           </AuthModalLi>
         );
@@ -158,16 +202,8 @@ class Header extends Component {
         <HeaderDiv>
           <Link
             to={this.props.auth ? '/dashboard' : '/'}
-            className="header-content-left"
           >
-            <div id="logo-display">
-              <p id="F">F</p>
-              <p id="O">O</p>
-              <p id="R">R</p>
-              <p id="G">G</p>
-              <p id="E">E</p>
-              <p id="T">T</p>
-            </div>
+            <Logo />
           </Link>
           <HeaderContentRight>{this.renderContent()}</HeaderContentRight>
         </HeaderDiv>
