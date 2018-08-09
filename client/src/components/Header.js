@@ -1,11 +1,84 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { TweenMax } from 'gsap/TweenMax';
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FacebookLoginButton } from "react-social-login-buttons";
-import { GoogleLoginButton } from "react-social-login-buttons";
+import { FacebookLoginButton } from 'react-social-login-buttons';
+import { GoogleLoginButton } from 'react-social-login-buttons';
+import styled from 'styled-components';
+import { ReactModalAdapter } from '../helpers/ReactModalAdapter';
+import { animate } from '../helpers/LogoAnimation';
+
+// styles
+const HeaderDiv = styled.div`
+  width: 100%;
+  height: 65px;
+  background-color: #f9f9f9;
+  color: #262626;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  > a {
+    text-decoration: none;
+  }
+`;
+
+const HeaderContentRight = styled.ul`
+  display: flex;
+  list-style: none;
+  padding: 0px !important;
+  > a {
+    text-decoration: none;
+    font-size: 13px;
+    margin: 5px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: lighter;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #262626;
+    > a :visited {
+      color: #262626;
+    }
+  }
+`;
+
+const AuthModalLi = styled.li`
+  > p {
+    text-decoration: none;
+    font-size: 13px;
+    margin: 5px;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: lighter;
+    margin-right: 20px;
+    cursor: pointer;
+    color: #262626;
+    > p :visited {
+      color: #262626;
+    }
+  }
+`;
+
+const StyledModal = styled(ReactModalAdapter).attrs({
+  overlayClassName: 'Overlay',
+  modalClassName: 'Modal'
+})`
+  .Modal {
+    position: absolute;
+    outline: none;
+    border-radius: 10px;
+    top: 12%;
+    left: calc(50% - 100px);
+    right: auto;
+    bottom: auto;
+    width: 200px;
+    height: 144px;
+    background-color: #e4e4e4;
+    box-shadow: 1px 1px 5px 1px #cecece;
+  }
+  .Overlay {
+    styles: here;
+  }
+`;
 
 Modal.setAppElement('#root');
 
@@ -30,23 +103,7 @@ class Header extends Component {
 
   componentDidMount() {
     const logo = document.getElementById('logo-display');
-
-    const animate = () => {
-      TweenMax.to('#F', 0.2, { left: 0 });
-      TweenMax.to('#T', 0.2, { left: 0 });
-      TweenMax.to('#O', 0.2, { opacity: 1 });
-      TweenMax.to('#E', 0.2, { opacity: 1 });
-    };
-
-    const animateTwo = () => {
-      TweenMax.to('#F', 0.2, { left: 21 });
-      TweenMax.to('#T', 0.2, { left: -18 });
-      TweenMax.to('#O', 0.2, { opacity: 0 });
-      TweenMax.to('#E', 0.2, { opacity: 0 });
-    };
-
-    logo.addEventListener('mouseover', animate);
-    logo.addEventListener('mouseout', animateTwo);
+    animate(logo);
   }
 
   renderContent() {
@@ -55,31 +112,30 @@ class Header extends Component {
         return;
       case false:
         return (
-          <li className="auth-modal-li">
-            <p onClick={this.openModal}>Login</p>
-            <Modal
+          <AuthModalLi>
+            <p onClick={this.openModal}>Log in</p>
+            <StyledModal
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.handleCloseModal}
               closeTimeoutMS={100}
-              className="auth-modal"
             >
               <button
                 onClick={this.handleCloseModal}
                 className="modal-close-button"
               >
-                <FontAwesomeIcon icon="times" color="black" size="sm" />
+                <FontAwesomeIcon icon="times" color="white" size="sm" />
               </button>
               <div className="modal-content">
                 <FacebookLoginButton>
-                  <a href="/auth/google">Google Login</a>
+                  <a href="/auth/google">Facebook Log in</a>
                 </FacebookLoginButton>
                 <GoogleLoginButton>
-                  <a href="/auth/facebook">Facebook Login</a>
+                  <a href="/auth/facebook">Google Log in</a>
                 </GoogleLoginButton>
               </div>
-            </Modal>
-          </li>
+            </StyledModal>
+          </AuthModalLi>
         );
       default:
         return [
@@ -90,7 +146,7 @@ class Header extends Component {
             <Link to={'about'}>about</Link>
           </li>,
           <li key="3">
-            <a href="/api/logout">logout</a>
+            <a href="/api/logout">log out</a>
           </li>
         ];
     }
@@ -99,7 +155,7 @@ class Header extends Component {
   render() {
     return (
       <nav>
-        <div className="header-div">
+        <HeaderDiv>
           <Link
             to={this.props.auth ? '/dashboard' : '/'}
             className="header-content-left"
@@ -113,8 +169,8 @@ class Header extends Component {
               <p id="T">T</p>
             </div>
           </Link>
-          <ul className="header-content-right">{this.renderContent()}</ul>
-        </div>
+          <HeaderContentRight>{this.renderContent()}</HeaderContentRight>
+        </HeaderDiv>
       </nav>
     );
   }
