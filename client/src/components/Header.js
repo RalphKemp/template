@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { TweenMax } from 'gsap/TweenMax';
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FacebookLoginButton } from 'react-social-login-buttons';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 import styled from 'styled-components';
 import { ReactModalAdapter } from '../helpers/ReactModalAdapter';
+import { animate } from '../helpers/LogoAnimation';
 
 // styles
 const HeaderDiv = styled.div`
@@ -97,23 +97,7 @@ class Header extends Component {
 
   componentDidMount() {
     const logo = document.getElementById('logo-display');
-
-    const animate = () => {
-      TweenMax.to('#F', 0.2, { left: 0 });
-      TweenMax.to('#T', 0.2, { left: 0 });
-      TweenMax.to('#O', 0.2, { opacity: 1 });
-      TweenMax.to('#E', 0.2, { opacity: 1 });
-    };
-
-    const animateTwo = () => {
-      TweenMax.to('#F', 0.2, { left: 21 });
-      TweenMax.to('#T', 0.2, { left: -18 });
-      TweenMax.to('#O', 0.2, { opacity: 0 });
-      TweenMax.to('#E', 0.2, { opacity: 0 });
-    };
-
-    logo.addEventListener('mouseover', animate);
-    logo.addEventListener('mouseout', animateTwo);
+    animate(logo);
   }
 
   renderContent() {
