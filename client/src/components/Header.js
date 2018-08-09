@@ -20,7 +20,7 @@ const HeaderDiv = styled.div`
   align-items: center;
   > a {
     text-decoration: none;
-  }
+  };
 `;
 
 const HeaderContentRight = styled.ul`
@@ -36,10 +36,13 @@ const HeaderContentRight = styled.ul`
     margin-right: 10px;
     cursor: pointer;
     color: #262626;
-    > a :visited {
+  };
+    & p:visited {
       color: #262626;
-    }
-  }
+    };
+    & p:hover {
+      color: #a25151;
+    };
 `;
 
 const AuthModalLi = styled.li`
@@ -52,15 +55,17 @@ const AuthModalLi = styled.li`
     margin-right: 20px;
     cursor: pointer;
     color: #262626;
-    > p :visited {
+  };
+    & a :visited {
       color: #262626;
-    }
-  }
+    };
 `;
 
 const StyledModal = styled(ReactModalAdapter).attrs({
   overlayClassName: 'Overlay',
-  modalClassName: 'Modal'
+  modalClassName: 'Modal',
+  ReactModalPortal: 'ReactModalPortal',
+  ReactModal__Overlay: 'ReactModal__Overlay'
 })`
   .Modal {
     position: absolute;
@@ -74,11 +79,68 @@ const StyledModal = styled(ReactModalAdapter).attrs({
     height: 144px;
     background-color: #e4e4e4;
     box-shadow: 1px 1px 5px 1px #cecece;
-  }
+  };
   .Overlay {
     styles: here;
+  };
+  .ReactModalPortal > div {
+    opacity: 0;
+  };
+  .ReactModalPortal {
+    transition: opacity 200ms ease-in-out;
+    background: rgba(0, 0, 0, 0.15);
+  };
+  .ReactModal__Overlay {
+    transition: opacity 200ms ease-in-out;
+    background: rgba(0, 0, 0, 0.15);
+  };
+  .ReactModalPortal '.ReactModal__Overlay--after-open' {
+    opacity: 1 !important;
+  };
+  .ReactModalPortal '.ReactModal__Overlay--before-close' {
+    opacity: 0 !important;
   }
+
 `;
+
+const ModalContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  > * {
+    text-align: center !important;
+    line-height: 11px !important;
+  };
+  & a {
+    font-family: "Work Sans", sans-serif;
+    font-weight: lighter;
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+  };
+  & > div {
+    height: 43px !important;
+    width: 80%;
+  };
+`;
+
+const StyledModalCloseButton = styled.button`
+  position: absolute;
+  top: -13px;
+  right: -14px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #848484;
+  padding: 5px 10px;
+  border-radius: 10px;
+  outline: none !important;
+  border: none;
+  color: white;
+`;
+
 
 Modal.setAppElement('#root');
 
@@ -118,22 +180,24 @@ class Header extends Component {
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.handleCloseModal}
+              openTimeoutMS={100}
               closeTimeoutMS={100}
             >
-              <button
+              <StyledModalCloseButton
                 onClick={this.handleCloseModal}
-                className="modal-close-button"
               >
                 <FontAwesomeIcon icon="times" color="white" size="sm" />
-              </button>
-              <div className="modal-content">
+              </StyledModalCloseButton>
+
+              <ModalContent>
                 <FacebookLoginButton>
                   <a href="/auth/google">Facebook Log in</a>
                 </FacebookLoginButton>
                 <GoogleLoginButton>
                   <a href="/auth/facebook">Google Log in</a>
                 </GoogleLoginButton>
-              </div>
+              </ModalContent>
+
             </StyledModal>
           </AuthModalLi>
         );
@@ -158,7 +222,6 @@ class Header extends Component {
         <HeaderDiv>
           <Link
             to={this.props.auth ? '/dashboard' : '/'}
-            className="header-content-left"
           >
             <div id="logo-display">
               <p id="F">F</p>
