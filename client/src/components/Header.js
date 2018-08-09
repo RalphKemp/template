@@ -192,10 +192,10 @@ class Header extends Component {
 
               <ModalContent>
                 <FacebookLoginButton>
-                  <a href="/auth/google">Facebook Log in</a>
+                  <a href="/auth/facebook">Facebook Log in</a>
                 </FacebookLoginButton>
                 <GoogleLoginButton>
-                  <a href="/auth/facebook">Google Log in</a>
+                  <a href="/auth/google">Google Log in</a>
                 </GoogleLoginButton>
               </ModalContent>
 
