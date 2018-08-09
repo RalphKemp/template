@@ -19,6 +19,15 @@ const Logo = styled.div`
     text-decoration: none;
     position: relative;
     margin: 1px;
+  };
+  & #F {
+      left: 21px;
+    };
+  & #T {
+      left: -18px;
+    };
+  & #O, #E {
+    opacity: 0;
   }
 `;
 
