@@ -7,7 +7,8 @@ import { FacebookLoginButton } from 'react-social-login-buttons';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 import styled from 'styled-components';
 import { ReactModalAdapter } from '../helpers/ReactModalAdapter';
-import { animate } from '../helpers/LogoAnimation';
+import { animateIn, animateOut } from '../helpers/LogoAnimation';
+import StyledLogo from './Logo';
 
 // styles
 const HeaderDiv = styled.div`
@@ -163,10 +164,10 @@ class Header extends Component {
     this.setState({ modalIsOpen: false });
   }
 
-  componentDidMount() {
-    const logo = document.getElementById('logo-display');
-    animate(logo);
-  }
+  // componentDidMount() {
+  //   const logo = document.getElementById('logo-display');
+  //   animate(logo);
+  // }
 
   renderContent() {
     switch (this.props.auth) {
@@ -222,15 +223,10 @@ class Header extends Component {
         <HeaderDiv>
           <Link
             to={this.props.auth ? '/dashboard' : '/'}
+            onMouseOver={animateIn}
+            onMouseOut={animateOut}
           >
-            <div id="logo-display">
-              <p id="F">F</p>
-              <p id="O">O</p>
-              <p id="R">R</p>
-              <p id="G">G</p>
-              <p id="E">E</p>
-              <p id="T">T</p>
-            </div>
+            <StyledLogo />
           </Link>
           <HeaderContentRight>{this.renderContent()}</HeaderContentRight>
         </HeaderDiv>
