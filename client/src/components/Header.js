@@ -58,18 +58,18 @@ class Header extends Component {
             <Modal
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
-              className="auth-modal"
               onRequestClose={this.handleCloseModal}
+              className="auth-modal"
             >
               <button
                 onClick={this.handleCloseModal}
                 className="modal-close-button"
               >
-                <FontAwesomeIcon icon="times" color="black" size="lg" />
+                <FontAwesomeIcon icon="times" color="white" size="sm" />
               </button>
               <div className="modal-content">
-                <a href="/auth/google">Login with Google</a>
-                <a href="/auth/facebook">Login with Facebook</a>
+                <a href="/auth/google" className="loginBtn loginBtn-google">Login with Google</a>
+                <a href="/auth/facebook" className="loginBtn loginBtn-facebook">Login with Facebook</a>
               </div>
             </Modal>
           </li>

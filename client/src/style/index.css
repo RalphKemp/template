@@ -58,10 +58,10 @@ body {
   width: 200px;
   height: 210px;
   background-color: #efefef;
+  box-shadow: 3px 3px 6px -1px #efefef;
 }
 
 .modal-content {
-  position:  relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,11 +74,10 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  height: 20px;
-  width: 20px;
   cursor: pointer;
   font-size: 16px;
-  background-color: red;
+  background-color: #d25b5b;
+  padding: 5px 10px;
   border-radius: 10px;
   outline: none;
   border:  none;
@@ -145,7 +144,6 @@ body {
 #T {
   left: -18px;
 }
-
 
 #O, #E {
   opacity: 0;
