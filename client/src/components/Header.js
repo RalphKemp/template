@@ -65,8 +65,6 @@ const AuthModalLi = styled.li`
 const StyledModal = styled(ReactModalAdapter).attrs({
   overlayClassName: 'Overlay',
   modalClassName: 'Modal',
-  ReactModalPortal: 'ReactModalPortal',
-  ReactModal__Overlay: 'ReactModal__Overlay'
 })`
   .Modal {
     position: absolute;
@@ -84,24 +82,19 @@ const StyledModal = styled(ReactModalAdapter).attrs({
   .Overlay {
     styles: here;
   };
-  .ReactModalPortal > div {
+  .ReactModal__Overlay {
+    background-color: rebeccapurple;
     opacity: 0;
   };
-  .ReactModalPortal {
-    transition: opacity 200ms ease-in-out;
-    background: rgba(0, 0, 0, 0.15);
-  };
-  .ReactModal__Overlay {
-    transition: opacity 200ms ease-in-out;
-    background: rgba(0, 0, 0, 0.15);
-  };
-  .ReactModalPortal '.ReactModal__Overlay--after-open' {
-    opacity: 1 !important;
-  };
-  .ReactModalPortal '.ReactModal__Overlay--before-close' {
-    opacity: 0 !important;
-  }
 
+  .ReactModal__Overlay--after-open {
+    opacity: 1;
+    transition: opacity 200ms ease-in-out;
+  };
+
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
+  };
 `;
 
 const ModalContent = styled.div`
@@ -181,7 +174,6 @@ class Header extends Component {
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.handleCloseModal}
-              openTimeoutMS={100}
               closeTimeoutMS={100}
             >
               <StyledModalCloseButton
