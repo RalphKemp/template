@@ -36,6 +36,9 @@ const HeaderContentRight = styled.ul`
     margin-right: 10px;
     cursor: pointer;
     color: #262626;
+    > a :visited {
+      color: #262626;
+    }
   }
 `;
 
@@ -49,6 +52,9 @@ const AuthModalLi = styled.li`
     margin-right: 20px;
     cursor: pointer;
     color: #262626;
+    > p :visited {
+      color: #262626;
+    }
   }
 `;
 
