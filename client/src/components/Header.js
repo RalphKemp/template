@@ -7,7 +7,8 @@ import { FacebookLoginButton } from 'react-social-login-buttons';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 import styled from 'styled-components';
 import { ReactModalAdapter } from '../helpers/ReactModalAdapter';
-import { animate } from '../helpers/LogoAnimation';
+import { animateIn, animateOut } from '../helpers/LogoAnimation';
+import StyledLogo from './Logo';
 
 // styles
 const HeaderDiv = styled.div`
@@ -27,7 +28,7 @@ const HeaderContentRight = styled.ul`
   display: flex;
   list-style: none;
   padding: 0px !important;
-  > a {
+  & a {
     text-decoration: none;
     font-size: 13px;
     margin: 5px;
@@ -64,8 +65,6 @@ const AuthModalLi = styled.li`
 const StyledModal = styled(ReactModalAdapter).attrs({
   overlayClassName: 'Overlay',
   modalClassName: 'Modal',
-  ReactModalPortal: 'ReactModalPortal',
-  ReactModal__Overlay: 'ReactModal__Overlay'
 })`
   .Modal {
     position: absolute;
@@ -83,24 +82,19 @@ const StyledModal = styled(ReactModalAdapter).attrs({
   .Overlay {
     styles: here;
   };
-  .ReactModalPortal > div {
+  .ReactModal__Overlay {
+    background-color: rebeccapurple;
     opacity: 0;
   };
-  .ReactModalPortal {
-    transition: opacity 200ms ease-in-out;
-    background: rgba(0, 0, 0, 0.15);
-  };
-  .ReactModal__Overlay {
-    transition: opacity 200ms ease-in-out;
-    background: rgba(0, 0, 0, 0.15);
-  };
-  .ReactModalPortal '.ReactModal__Overlay--after-open' {
-    opacity: 1 !important;
-  };
-  .ReactModalPortal '.ReactModal__Overlay--before-close' {
-    opacity: 0 !important;
-  }
 
+  .ReactModal__Overlay--after-open {
+    opacity: 1;
+    transition: opacity 200ms ease-in-out;
+  };
+
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
+  };
 `;
 
 const ModalContent = styled.div`
@@ -163,10 +157,10 @@ class Header extends Component {
     this.setState({ modalIsOpen: false });
   }
 
-  componentDidMount() {
-    const logo = document.getElementById('logo-display');
-    animate(logo);
-  }
+  // componentDidMount() {
+  //   const logo = document.getElementById('logo-display');
+  //   animate(logo);
+  // }
 
   renderContent() {
     switch (this.props.auth) {
@@ -180,7 +174,6 @@ class Header extends Component {
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.handleCloseModal}
-              openTimeoutMS={100}
               closeTimeoutMS={100}
             >
               <StyledModalCloseButton
@@ -191,10 +184,10 @@ class Header extends Component {
 
               <ModalContent>
                 <FacebookLoginButton>
-                  <a href="/auth/google">Facebook Log in</a>
+                  <a href="/auth/facebook">Facebook Log in</a>
                 </FacebookLoginButton>
                 <GoogleLoginButton>
-                  <a href="/auth/facebook">Google Log in</a>
+                  <a href="/auth/google">Google Log in</a>
                 </GoogleLoginButton>
               </ModalContent>
 
@@ -222,15 +215,10 @@ class Header extends Component {
         <HeaderDiv>
           <Link
             to={this.props.auth ? '/dashboard' : '/'}
+            onMouseOver={animateIn}
+            onMouseOut={animateOut}
           >
-            <div id="logo-display">
-              <p id="F">F</p>
-              <p id="O">O</p>
-              <p id="R">R</p>
-              <p id="G">G</p>
-              <p id="E">E</p>
-              <p id="T">T</p>
-            </div>
+            <StyledLogo />
           </Link>
           <HeaderContentRight>{this.renderContent()}</HeaderContentRight>
         </HeaderDiv>
