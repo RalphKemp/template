@@ -8,7 +8,6 @@ import { GoogleLoginButton } from 'react-social-login-buttons';
 import styled from 'styled-components';
 import { ReactModalAdapter } from '../helpers/ReactModalAdapter';
 import { animate } from '../helpers/LogoAnimation';
-import Logo from './Logo';
 
 // styles
 const HeaderDiv = styled.div`
@@ -64,7 +63,9 @@ const AuthModalLi = styled.li`
 
 const StyledModal = styled(ReactModalAdapter).attrs({
   overlayClassName: 'Overlay',
-  modalClassName: 'Modal'
+  modalClassName: 'Modal',
+  ReactModalPortal: 'ReactModalPortal',
+  ReactModal__Overlay: 'ReactModal__Overlay'
 })`
   .Modal {
     position: absolute;
@@ -82,6 +83,24 @@ const StyledModal = styled(ReactModalAdapter).attrs({
   .Overlay {
     styles: here;
   };
+  .ReactModalPortal > div {
+    opacity: 0;
+  };
+  .ReactModalPortal {
+    transition: opacity 200ms ease-in-out;
+    background: rgba(0, 0, 0, 0.15);
+  };
+  .ReactModal__Overlay {
+    transition: opacity 200ms ease-in-out;
+    background: rgba(0, 0, 0, 0.15);
+  };
+  .ReactModalPortal '.ReactModal__Overlay--after-open' {
+    opacity: 1 !important;
+  };
+  .ReactModalPortal '.ReactModal__Overlay--before-close' {
+    opacity: 0 !important;
+  }
+
 `;
 
 const ModalContent = styled.div`
@@ -145,8 +164,8 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    const
-    console.log(document.getElementById('hey'));
+    const logo = document.getElementById('logo-display');
+    animate(logo);
   }
 
   renderContent() {
@@ -161,6 +180,7 @@ class Header extends Component {
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.handleCloseModal}
+              openTimeoutMS={100}
               closeTimeoutMS={100}
             >
               <StyledModalCloseButton
@@ -203,7 +223,14 @@ class Header extends Component {
           <Link
             to={this.props.auth ? '/dashboard' : '/'}
           >
-            <Logo />
+            <div id="logo-display">
+              <p id="F">F</p>
+              <p id="O">O</p>
+              <p id="R">R</p>
+              <p id="G">G</p>
+              <p id="E">E</p>
+              <p id="T">T</p>
+            </div>
           </Link>
           <HeaderContentRight>{this.renderContent()}</HeaderContentRight>
         </HeaderDiv>

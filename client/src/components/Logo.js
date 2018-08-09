@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Logo = () => {
-  const StyledLogo = styled.div`
+const StyledLogo = styled.div`
     position: relative;
     height: 65px;
     width: 150px;
@@ -14,7 +13,7 @@ const Logo = () => {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-weight: bold;
     > p {
       text-decoration: none;
@@ -23,8 +22,9 @@ const Logo = () => {
     }
   `;
 
+const Logo = (props) => {
   return (
-    <StyledLogo>
+    <StyledLogo innerRef={elem => props.getRef(elem)}>
       <p id="F">F</p>
       <p id="O">O</p>
       <p id="R">R</p>
@@ -33,8 +33,6 @@ const Logo = () => {
       <p id="T">T</p>
     </StyledLogo>
   );
-}
+};
 
 export default Logo;
-
-
