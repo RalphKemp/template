@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { TweenMax } from 'gsap/TweenMax';
 import Modal from 'react-modal';
-import FontAwesome from 'react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 Modal.setAppElement('#root');
 
@@ -65,7 +65,7 @@ class Header extends Component {
                 onClick={this.handleCloseModal}
                 className="modal-close-button"
               >
-                <FontAwesome name="window-close"/>
+                <FontAwesomeIcon icon="times" color="black" size="lg" />
               </button>
               <div className="modal-content">
                 <a href="/auth/google">Login with Google</a>

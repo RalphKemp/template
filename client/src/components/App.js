@@ -8,6 +8,11 @@ import Landing from './Landing';
 import Dashboard from './Dashboard';
 import About from './About';
 
+//font awesome
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope, faKey, faTimes } from '@fortawesome/free-solid-svg-icons';
+library.add(faEnvelope, faKey, faTimes);
+
 class App extends Component {
 
   componentDidMount() {
