@@ -56,8 +56,8 @@ body {
   right: auto;
   bottom: auto;
   width: 200px;
-  height: 210px;
-  background-color: #efefef;
+  height: 144px;
+  background-color: #e4e4e4;
   box-shadow: 3px 3px 6px -1px #efefef;
 }
 
@@ -70,17 +70,35 @@ body {
   width: 100%;
 }
 
+.modal-content * {
+  text-align: center !important;
+  vertical-align: middle;
+}
+
+.modal-content a {
+  font-family: "Work Sans", sans-serif;
+  font-weight: lighter;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+}
+
+.modal-content > div {
+  height: 43px !important;
+  width: 80%;
+}
+
 .modal-close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -13px;
+  right: -14px;
   cursor: pointer;
   font-size: 16px;
-  background-color: #d25b5b;
+  background-color: #f9adad;
   padding: 5px 10px;
   border-radius: 10px;
   outline: none !important;
-  border:  none;
+  border: none;
   color: white;
 }
 

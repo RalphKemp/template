@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { TweenMax } from 'gsap/TweenMax';
 import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FacebookLoginButton } from "react-social-login-buttons";
+import { GoogleLoginButton } from "react-social-login-buttons";
 
 Modal.setAppElement('#root');
 
@@ -66,15 +68,15 @@ class Header extends Component {
                 onClick={this.handleCloseModal}
                 className="modal-close-button"
               >
-                <FontAwesomeIcon icon="times" color="white" size="sm" />
+                <FontAwesomeIcon icon="times" color="black" size="sm" />
               </button>
               <div className="modal-content">
-                <button className="loginBtn loginBtn-google">
-                  <a href="/auth/google">Login with Google</a>
-                </button>
-                <button className="loginBtn loginBtn-facebook">
-                  <a href="/auth/facebook">Login with Facebook</a>
-                </button>
+                <FacebookLoginButton>
+                  <a href="/auth/google">Google Login</a>
+                </FacebookLoginButton>
+                <GoogleLoginButton>
+                  <a href="/auth/facebook">Facebook Login</a>
+                </GoogleLoginButton>
               </div>
             </Modal>
           </li>
