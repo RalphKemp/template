@@ -5,12 +5,35 @@ import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FacebookLoginButton } from 'react-social-login-buttons';
 import { GoogleLoginButton } from 'react-social-login-buttons';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ReactModalAdapter } from '../helpers/ReactModalAdapter';
 import { animateIn, animateOut } from '../helpers/LogoAnimation';
 import StyledLogo from './Logo';
 
 // styles
+// max height
+const sizes = {
+  desktopLarge: 1679,
+  desktop: 1439,
+  tablet: 1022,
+  mobilePlus: 413,
+  mobileSmall: 319
+};
+
+// Iterate through the sizes and create a media template
+const media = Object.keys(sizes).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${sizes[label] / 16}em) {
+      ${css(...args)};
+    }
+  `;
+  return acc;
+}, {});
+
+  // ${media.desktop`background: dodgerblue;`}
+  // ${media.tablet`background: mediumseagreen;`}
+  // ${media.mobile`background: palevioletred;`}
+
 const HeaderDiv = styled.div`
   width: 100%;
   height: 65px;
@@ -21,9 +44,10 @@ const HeaderDiv = styled.div`
   align-items: center;
   > a {
     text-decoration: none;
-  };
+  }
 `;
 
+//logout
 const HeaderContentRight = styled.ul`
   display: flex;
   list-style: none;
@@ -37,15 +61,13 @@ const HeaderContentRight = styled.ul`
     margin-right: 10px;
     cursor: pointer;
     color: #262626;
-  };
-    & p:visited {
-      color: #262626;
-    };
-    & p:hover {
-      color: #a25151;
-    };
+  }
+  & a:hover {
+    color: #a25151;
+  }
 `;
 
+// login
 const AuthModalLi = styled.li`
   > p {
     text-decoration: none;
@@ -56,45 +78,51 @@ const AuthModalLi = styled.li`
     margin-right: 20px;
     cursor: pointer;
     color: #262626;
-  };
-    & a :visited {
-      color: #262626;
-    };
+  }
+  & a :visited {
+    color: #262626;
+  }
 `;
 
 const StyledModal = styled(ReactModalAdapter).attrs({
   overlayClassName: 'Overlay',
-  modalClassName: 'Modal',
+  modalClassName: 'Modal'
 })`
   .Modal {
     position: absolute;
     outline: none;
     border-radius: 10px;
     top: 12%;
-    left: calc(50% - 100px);
-    right: auto;
+    right: calc(50% - 100px);
+    left: auto;
     bottom: auto;
     width: 200px;
     height: 144px;
     background-color: #e4e4e4;
     box-shadow: 1px 1px 5px 1px #cecece;
-  };
+  }
   .Overlay {
     styles: here;
-  };
+  }
   .ReactModal__Overlay {
     background-color: rebeccapurple;
     opacity: 0;
-  };
+  }
 
   .ReactModal__Overlay--after-open {
     opacity: 1;
     transition: opacity 200ms ease-in-out;
-  };
+  }
 
   .ReactModal__Overlay--before-close {
     opacity: 0;
-  };
+  }
+  ${media.mobilePlus`
+    .Modal {
+      top: 53px;
+      right: 20px;
+    }
+  `}
 `;
 
 const ModalContent = styled.div`
@@ -107,18 +135,18 @@ const ModalContent = styled.div`
   > * {
     text-align: center !important;
     line-height: 11px !important;
-  };
+  }
   & a {
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-weight: lighter;
     text-decoration: none;
     color: white;
     font-size: 12px;
-  };
+  }
   & > div {
     height: 43px !important;
     width: 80%;
-  };
+  }
 `;
 
 const StyledModalCloseButton = styled.button`
@@ -133,6 +161,10 @@ const StyledModalCloseButton = styled.button`
   outline: none !important;
   border: none;
   color: white;
+  ${media.mobilePlus`
+    top: -14px;
+    left: -15px;
+  `}
 `;
 
 
@@ -176,9 +208,7 @@ class Header extends Component {
               onRequestClose={this.handleCloseModal}
               closeTimeoutMS={100}
             >
-              <StyledModalCloseButton
-                onClick={this.handleCloseModal}
-              >
+              <StyledModalCloseButton onClick={this.handleCloseModal}>
                 <FontAwesomeIcon icon="times" color="white" size="sm" />
               </StyledModalCloseButton>
 
@@ -190,7 +220,6 @@ class Header extends Component {
                   <a href="/auth/google">Google Log in</a>
                 </GoogleLoginButton>
               </ModalContent>
-
             </StyledModal>
           </AuthModalLi>
         );
