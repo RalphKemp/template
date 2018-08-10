@@ -127,17 +127,16 @@ const StyledModal = styled(ReactModalAdapter).attrs({
   }
 
   .ReactModal__Overlay {
-    background-color: rebeccapurple;
-    opacity: 0;
+    opacity: 0 !important;
   }
 
   .ReactModal__Overlay--after-open {
-    opacity: 1;
-    transition: opacity 200ms ease-in-out;
+    opacity: 1 !important;
+    transition: opacity 200ms ease-in-out !important;
   }
 
   .ReactModal__Overlay--before-close {
-    opacity: 0;
+    opacity: 0 !important;
   }
   ${media.mobilePlus`
     .Modal {
