@@ -11,19 +11,19 @@ import { animateIn, animateOut } from '../helpers/LogoAnimation';
 import StyledLogo from './Logo';
 
 // styles
-
+// max height
 const sizes = {
   desktopLarge: 1679,
   desktop: 1439,
   tablet: 1022,
-  mobile: 479,
+  mobilePlus: 413,
   mobileSmall: 319
 };
 
 // Iterate through the sizes and create a media template
 const media = Object.keys(sizes).reduce((acc, label) => {
   acc[label] = (...args) => css`
-    @media (max-width: ${sizes[label] / 16}em) {
+    @media (min-width: ${sizes[label] / 16}em) {
       ${css(...args)};
     }
   `;
@@ -47,6 +47,7 @@ const HeaderDiv = styled.div`
   }
 `;
 
+//logout
 const HeaderContentRight = styled.ul`
   display: flex;
   list-style: none;
@@ -61,15 +62,12 @@ const HeaderContentRight = styled.ul`
     cursor: pointer;
     color: #262626;
   }
-  & p:visited {
-    color: #262626;
-  }
-  & p:hover {
+  & a:hover {
     color: #a25151;
   }
-  ${media.tablet`display: none;`}
 `;
 
+// login
 const AuthModalLi = styled.li`
   > p {
     text-decoration: none;
@@ -95,8 +93,8 @@ const StyledModal = styled(ReactModalAdapter).attrs({
     outline: none;
     border-radius: 10px;
     top: 12%;
-    left: calc(50% - 100px);
-    right: auto;
+    right: calc(50% - 100px);
+    left: auto;
     bottom: auto;
     width: 200px;
     height: 144px;
@@ -119,6 +117,12 @@ const StyledModal = styled(ReactModalAdapter).attrs({
   .ReactModal__Overlay--before-close {
     opacity: 0;
   }
+  ${media.mobilePlus`
+    .Modal {
+      top: 53px;
+      right: 20px;
+    }
+  `}
 `;
 
 const ModalContent = styled.div`
@@ -157,6 +161,10 @@ const StyledModalCloseButton = styled.button`
   outline: none !important;
   border: none;
   color: white;
+  ${media.mobilePlus`
+    top: -14px;
+    left: -15px;
+  `}
 `;
 
 
