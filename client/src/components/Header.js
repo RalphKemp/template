@@ -9,7 +9,7 @@ import styled, { css } from 'styled-components';
 import { ReactModalAdapter } from '../helpers/ReactModalAdapter';
 import { animateIn, animateOut } from '../helpers/LogoAnimation';
 import StyledLogo from './Logo';
-import Menu from './Menu';
+import DropDownMenu from './Menu';
 
 // styles
 // max height
@@ -36,7 +36,6 @@ const media = Object.keys(sizes).reduce((acc, label) => {
 // ${media.mobile`background: palevioletred;`}
 
 const StyledMenuDivBig = styled.div`
-
   display: none;
   ${media.mid`
     display: flex;
@@ -250,27 +249,22 @@ class Header extends Component {
         return (
           <div>
             <StyledMenuDivBig big>
-            <li key="1">
-              <Link to={'dashboard'}>dashboard</Link>
-            </li>
-            <li key="2">
-              <Link to={'about'}>about</Link>
-            </li>
-            <li key="3">
-              <a href="/api/logout">log out</a>
-            </li>
-          </StyledMenuDivBig>
+              <li key="1">
+                <Link to={'dashboard'}>dashboard</Link>
+              </li>
+              <li key="2">
+                <Link to={'about'}>about</Link>
+              </li>
+              <li key="3">
+                <a href="/api/logout">log out</a>
+              </li>
+            </StyledMenuDivBig>
 
-          <StyledMenuDivSmall>
-            <li key="1">
-              <Link to={'dashboard'}>dashboard</Link>
-            </li>
-            <li key="2">
-              <Link to={'about'}>about</Link>
-            </li>
-          </StyledMenuDivSmall>
-        </div>
-      );
+            <StyledMenuDivSmall>
+              <DropDownMenu />
+            </StyledMenuDivSmall>
+          </div>
+        );
     }
   }
 
