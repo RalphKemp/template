@@ -233,6 +233,7 @@ class Header extends Component {
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.handleCloseModal}
+              shouldCloseOnOverlayClick={true}
               closeTimeoutMS={100}
             >
               <StyledModalCloseButton onClick={this.handleCloseModal}>
