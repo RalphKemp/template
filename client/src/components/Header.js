@@ -174,8 +174,8 @@ const ModalContent = styled.div`
 
 const StyledModalCloseButton = styled.button`
   position: absolute;
-  top: -13px;
-  right: -14px;
+  top: -13px !important;
+  right: -14px !important;
   cursor: pointer;
   font-size: 16px;
   background-color: #848484;
@@ -184,6 +184,8 @@ const StyledModalCloseButton = styled.button`
   outline: none !important;
   border: none;
   color: white;
+  max-width: 30px !important;
+  max-height: 28px !important;
   ${media.mobilePlus`
     top: -14px;
     left: -15px;
