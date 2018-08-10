@@ -95,7 +95,6 @@ const AuthModalLi = styled.li`
 `;
 
 const StyledModal = styled(ReactModalAdapter).attrs({
-  overlayClassName: 'Overlay',
   modalClassName: 'Modal'
 })`
   .Modal {
@@ -111,9 +110,7 @@ const StyledModal = styled(ReactModalAdapter).attrs({
     background-color: #e4e4e4;
     box-shadow: 1px 1px 5px 1px #cecece;
   }
-  .Overlay {
-    styles: here;
-  }
+
   .ReactModal__Overlay {
     background-color: rebeccapurple;
     opacity: 0;
