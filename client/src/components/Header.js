@@ -10,30 +10,8 @@ import { ReactModalAdapter } from '../helpers/ReactModalAdapter';
 import { animateIn, animateOut } from '../helpers/LogoAnimation';
 import StyledLogo from './Logo';
 import DropDownMenu from './Menu';
+import { sizes, media } from '../helpers/Sizing'
 
-// styles
-// max height
-const sizes = {
-  desktopLarge: 1679,
-  desktop: 1439,
-  tablet: 1022,
-  mid: 600,
-  mobilePlus: 413,
-  mobileSmall: 319
-};
-
-// Iterate through the sizes and create a media template
-const media = Object.keys(sizes).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media (min-width: ${sizes[label] / 16}em) {
-      ${css(...args)};
-    }
-  `;
-  return acc;
-}, {});
-
-// ${media.tablet`background: mediumseagreen;`}
-// ${media.mobile`background: palevioletred;`}
 
 const StyledMenuDivBig = styled.div`
   display: none;
@@ -233,7 +211,6 @@ class Header extends Component {
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.handleCloseModal}
-              shouldCloseOnOverlayClick={true}
               closeTimeoutMS={100}
             >
               <StyledModalCloseButton onClick={this.handleCloseModal}>
