@@ -20,23 +20,29 @@ const StyledLanding = styled.div`
 const LandingSectionOne = styled.div`
   height: 100%;
   width: 100%;
-  background-color: blue;
+  background-color: #363d2f;
+  color: white;
 `;
 
 const LandingSectionTwo = LandingSectionOne.extend`
   height: 100%;
   width: 100%;
-  background-color: red !important;
+  color: black !important;
+  background-color: #cdbcbc !important;
 `;
 
 const Landing = () => {
   return (
     <StyledLanding>
       <LandingSectionOne>
-        left
+        <div className="section-one-text">
+          ONE
+        </div>
       </LandingSectionOne>
       <LandingSectionTwo>
-        right
+        <div className="section-two-text">
+          ONE
+        </div>
       </LandingSectionTwo>
     </StyledLanding>
   );
