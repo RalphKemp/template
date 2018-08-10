@@ -186,9 +186,12 @@ const StyledModalCloseButton = styled.button`
   color: white;
   max-width: 30px !important;
   max-height: 28px !important;
+  display: flex;
+  justify-content: center;
+  align-items: items;
   ${media.mobilePlus`
-    top: -14px;
-    left: -15px;
+    top: -12px !important;
+    left: -15px !important;
   `};
 `;
 
