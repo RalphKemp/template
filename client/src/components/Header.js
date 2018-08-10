@@ -9,6 +9,7 @@ import styled, { css } from 'styled-components';
 import { ReactModalAdapter } from '../helpers/ReactModalAdapter';
 import { animateIn, animateOut } from '../helpers/LogoAnimation';
 import StyledLogo from './Logo';
+import Menu from './Menu';
 
 // styles
 // max height
@@ -16,6 +17,7 @@ const sizes = {
   desktopLarge: 1679,
   desktop: 1439,
   tablet: 1022,
+  mid: 600,
   mobilePlus: 413,
   mobileSmall: 319
 };
@@ -30,9 +32,23 @@ const media = Object.keys(sizes).reduce((acc, label) => {
   return acc;
 }, {});
 
-  // ${media.desktop`background: dodgerblue;`}
-  // ${media.tablet`background: mediumseagreen;`}
-  // ${media.mobile`background: palevioletred;`}
+// ${media.tablet`background: mediumseagreen;`}
+// ${media.mobile`background: palevioletred;`}
+
+const StyledMenuDivBig = styled.div`
+
+  display: none;
+  ${media.mid`
+    display: flex;
+  `};
+`;
+
+const StyledMenuDivSmall = styled.div`
+  display: flex;
+  ${media.mid`
+    display: none;
+  `};
+`;
 
 const HeaderDiv = styled.div`
   width: 100%;
@@ -69,7 +85,7 @@ const HeaderContentRight = styled.ul`
     & a {
       font-size: 15px;
     };
-  `}
+  `};
 `;
 
 // login
@@ -91,7 +107,7 @@ const AuthModalLi = styled.li`
     & p {
       font-size: 15px;
     };
-  `}
+  `};
 `;
 
 const StyledModal = styled(ReactModalAdapter).attrs({
@@ -129,10 +145,10 @@ const StyledModal = styled(ReactModalAdapter).attrs({
       top: 53px;
       right: 20px;
     }
-  `}
+  `};
 `;
 
- // modalcontent
+// modalcontent
 const ModalContent = styled.div`
   display: flex;
   justify-content: center;
@@ -172,9 +188,8 @@ const StyledModalCloseButton = styled.button`
   ${media.mobilePlus`
     top: -14px;
     left: -15px;
-  `}
+  `};
 `;
-
 
 Modal.setAppElement('#root');
 
@@ -232,17 +247,30 @@ class Header extends Component {
           </AuthModalLi>
         );
       default:
-        return [
-          <li key="1">
-            <Link to={'dashboard'}>dashboard</Link>
-          </li>,
-          <li key="2">
-            <Link to={'about'}>about</Link>
-          </li>,
-          <li key="3">
-            <a href="/api/logout">log out</a>
-          </li>
-        ];
+        return (
+          <div>
+            <StyledMenuDivBig big>
+            <li key="1">
+              <Link to={'dashboard'}>dashboard</Link>
+            </li>
+            <li key="2">
+              <Link to={'about'}>about</Link>
+            </li>
+            <li key="3">
+              <a href="/api/logout">log out</a>
+            </li>
+          </StyledMenuDivBig>
+
+          <StyledMenuDivSmall>
+            <li key="1">
+              <Link to={'dashboard'}>dashboard</Link>
+            </li>
+            <li key="2">
+              <Link to={'about'}>about</Link>
+            </li>
+          </StyledMenuDivSmall>
+        </div>
+      );
     }
   }
 
