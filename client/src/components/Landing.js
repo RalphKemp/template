@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { sizes, media } from '../helpers/Sizing';
+import { media } from '../helpers/Sizing';
 
 const StyledLanding = styled.div`
   width: 100%;
