@@ -14,8 +14,18 @@ const BurgerDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 20px;
+  margin-right: 28px;
+  & > * {
+    position: absolute;
+    top: 5px;
+  }
 `;
+
+const StyledDropDownItem = styled.li`
+  font-size: 12px;
+  text-align: left;
+`;
+
 
 class DropDownMenu extends Component {
   constructor() {
@@ -49,7 +59,7 @@ class DropDownMenu extends Component {
     return (
       <StyledMenuDiv>
         <BurgerDiv onClick={this.showMenu}>
-          <FontAwesomeIcon icon="bars" color="black" size="1x" />
+          <FontAwesomeIcon icon="bars" color="black" size="lg" />
         </BurgerDiv>
         {this.state.showMenu ? (
           <div
@@ -58,15 +68,17 @@ class DropDownMenu extends Component {
               this.dropdownMenu = element;
             }}
           >
-            <li key="1">
-              <Link to={'dashboard'}>dashboard</Link>
-            </li>
-            <li key="2">
-              <Link to={'about'}>about</Link>
-            </li>
-            <li key="3">
-              <a href="/api/logout">log out</a>
-            </li>
+
+              <StyledDropDownItem key="1">
+                <Link to={'dashboard'}>dashboard</Link>
+              </StyledDropDownItem>
+              <StyledDropDownItem key="2">
+                <Link to={'about'}>about</Link>
+              </StyledDropDownItem>
+              <StyledDropDownItem key="3">
+                <a href="/api/logout">log out</a>
+              </StyledDropDownItem>
+
           </div>
         ) : null}
       </StyledMenuDiv>
