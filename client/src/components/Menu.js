@@ -1,5 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+const StyledMenuDiv = styled.div`
+
+`;
+
+const BurgerDiv = styled.div`
+  position: relative;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+`;
 
 class DropDownMenu extends Component {
   constructor() {
@@ -31,9 +47,10 @@ class DropDownMenu extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.showMenu}>Show menu</button>
-
+      <StyledMenuDiv>
+        <BurgerDiv onClick={this.showMenu}>
+          <FontAwesomeIcon icon="bars" color="black" size="1x" />
+        </BurgerDiv>
         {this.state.showMenu ? (
           <div
             className="menu"
@@ -52,7 +69,7 @@ class DropDownMenu extends Component {
             </li>
           </div>
         ) : null}
-      </div>
+      </StyledMenuDiv>
     );
   }
 }

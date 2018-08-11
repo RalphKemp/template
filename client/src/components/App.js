@@ -12,8 +12,8 @@ import { Code } from 'react-content-loader';
 
 //font awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faKey, faTimes } from '@fortawesome/free-solid-svg-icons';
-library.add(faEnvelope, faKey, faTimes);
+import { faEnvelope, faKey, faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
+library.add(faEnvelope, faKey, faTimes, faBars);
 
 class App extends Component {
   constructor(props) {
@@ -31,13 +31,14 @@ class App extends Component {
   MyCodeLoader() {
     const StyledLoader = styled.div`
       width: 100vw;
-      height: 100vh;
+      height: calc(100vh - 60px);
       display: flex;
       justify-content: center;
       align-items: center;
       & > * {
-        width: 300px;
-        height: 200px;
+        margin-left: 100px;
+        width: 100%;
+        height: auto;
         color: #c6c6c6;
       }
     `;

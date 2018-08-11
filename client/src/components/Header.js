@@ -22,6 +22,8 @@ const StyledMenuDivBig = styled.div`
 
 const StyledMenuDivSmall = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   ${media.mid`
     display: none;
   `};
@@ -29,7 +31,7 @@ const StyledMenuDivSmall = styled.div`
 
 const HeaderDiv = styled.div`
   width: 100%;
-  height: 65px;
+  height: 60px;
   background-color: #f9f9f9;
   color: #262626;
   display: flex;
