@@ -57,12 +57,12 @@ const LandingSectionOne = styled.div`
       height: auto;
     }
     & > div div:first-child {
-      font-size: 2.1em;
+      font-size: 2.4em;
       margin-bottom: 20px;
       line-height: 0.98;
     }
     & div:last-child {
-      font-size: 24px;
+      font-size: 21px;
     }
   `}
 
