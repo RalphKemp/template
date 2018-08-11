@@ -14,18 +14,21 @@ import { faEnvelope, faKey, faTimes } from '@fortawesome/free-solid-svg-icons';
 library.add(faEnvelope, faKey, faTimes);
 
 class App extends Component {
-
   componentDidMount() {
     this.props.fetchUser();
   }
 
   render() {
-    return(
+    return (
       <div id="main-container">
         <BrowserRouter>
           <div id="sub-container">
             <Header />
-            <Route exact path="/" component={this.props.auth ? Dashboard : Landing} />
+            <Route
+              exact
+              path="/"
+              component={this.props.auth ? Dashboard : Landing}
+            />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/about" component={About} />
           </div>
@@ -39,4 +42,7 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps, actions)(App);
+export default connect(
+  mapStateToProps,
+  actions
+)(App);
