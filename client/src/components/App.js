@@ -29,7 +29,7 @@ class App extends Component {
     };
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     await this.props.fetchUser();
     this.setState({ loaded: true });
   }

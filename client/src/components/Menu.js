@@ -6,22 +6,37 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const StyledMenuDiv = styled.div``;
 
 const BurgerDiv = styled.div`
-  position: relative;
+  position: absolute;
+  top: 15px;
+  right: 24px;
   height: 30px;
   width: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 28px;
   & > * {
     position: absolute;
     top: 5px;
   }
 `;
 
+const ShowMenuDiv = styled.div`
+  margin-top: 38px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+`;
+
 const StyledDropDownItem = styled.li`
-  font-size: 12px;
-  text-align: left;
+  padding: 6px;
+  background-color: #ececec;
+  & > a {
+    font-size: 13px !important;
+    text-align: left !important;
+    color: black !important;
+    display: inline-block;
+    vertical-align: middle;
+  }
 `;
 
 class DropDownMenu extends Component {
@@ -58,6 +73,7 @@ class DropDownMenu extends Component {
         <BurgerDiv onClick={this.showMenu}>
           <FontAwesomeIcon icon="bars" color="black" size="lg" />
         </BurgerDiv>
+        <ShowMenuDiv>
         {this.state.showMenu ? (
           <div
             className="menu"
@@ -76,6 +92,7 @@ class DropDownMenu extends Component {
             </StyledDropDownItem>
           </div>
         ) : null}
+        </ShowMenuDiv>
       </StyledMenuDiv>
     );
   }
