@@ -41,7 +41,7 @@ const StyledModal = styled(ReactModalAdapter).attrs({
     left: auto;
     bottom: auto;
     width: 200px;
-    height: 144px;
+    height: 197px;
     background-color: #e4e4e4;
     box-shadow: 1px 1px 5px 1px #cecece;
   }
@@ -61,8 +61,8 @@ const StyledModal = styled(ReactModalAdapter).attrs({
   }
   ${media.mobilePlus`
     .Modal {
-      top: 53px;
-      right: 20px;
+      top: calc(50% - 60px);
+      right: calc(50% - 100px);
     }
   `};
 `;
@@ -89,6 +89,20 @@ const ModalContent = styled.div`
   & > div {
     height: 43px !important;
     width: 80%;
+  }
+  & nav {
+    color: black;
+    width: 80%;
+    height: auto !important;
+    word-wrap: break-word;
+    & p {
+      line-height: 17px;
+      font-family: 'Work Sans',sans-serif;
+      margin-top: 0px !important;
+      margin-bottom: 10px !important;
+      font-size: 13px;
+      text-align: justify;
+    }
   }
 `;
 
@@ -149,6 +163,11 @@ class AuthSignUpModal extends Component {
           </StyledModalCloseButton>
 
           <ModalContent>
+            <nav>
+              <p>
+                Start organising your life now. Sign up for free.
+              </p>
+            </nav>
             <FacebookLoginButton>
               <a href="/auth/facebook">Facebook Sign Up</a>
             </FacebookLoginButton>

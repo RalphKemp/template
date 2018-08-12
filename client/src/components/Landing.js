@@ -20,7 +20,7 @@ const StyledLanding = styled.div`
 `;
 
 const StyledSignUpButton = styled.div`
-  width: 85px;
+  width: 75px;
   height: 30px;
   background-color: #cdbcbc;
   padding: 5px;
@@ -31,12 +31,21 @@ const StyledSignUpButton = styled.div`
   list-style: none;
   display: flex;
   align-items: center;
+  :hover {
+    background-color: #c59c9c;
+  }
+  ${media.tablet`
+    width: 83px;
+  `};
   & > * p {
     text-align: center;
     vertical-align: middle;
     font-weight: bold;
     font-size: 15px;
     margin: none !important;
+    ${media.tablet`
+      font-size: 17px;
+    `};
   }
 `;
 
@@ -97,6 +106,7 @@ const LandingSectionOne = styled.div`
       line-height: 0.98;
     }
     & div:last-child {
+      margin-top: 15px !important;
       font-size: 20px;
     }
   `};
