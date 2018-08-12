@@ -84,7 +84,7 @@ const LandingSectionOne = styled.div`
   }
   ${media.mid`
     & > div {
-      width: 400px;
+      width: 365px;
       height: auto;
     }
     & > div div:first-child {
@@ -97,7 +97,7 @@ const LandingSectionOne = styled.div`
     }
   `} ${media.tablet`
     & > div {
-      width: 400px;
+      width: 365px;
       height: auto;
     }
     & > div div:first-child {
