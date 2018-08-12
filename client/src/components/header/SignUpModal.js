@@ -61,7 +61,7 @@ const StyledModal = styled(ReactModalAdapter).attrs({
   }
   ${media.mobilePlus`
     .Modal {
-      top: calc(50% - 60px);
+      top: calc(50% - 100px);
       right: calc(50% - 100px);
     }
   `};
@@ -96,12 +96,13 @@ const ModalContent = styled.div`
     height: auto !important;
     word-wrap: break-word;
     & p {
-      line-height: 17px;
+      line-height: 18px;
       font-family: 'Work Sans',sans-serif;
       margin-top: 0px !important;
       margin-bottom: 10px !important;
-      font-size: 13px;
-      text-align: justify;
+      font-size: 17px;
+      text-align: left;
+      padding-left: 7px;
     }
   }
 `;
@@ -165,7 +166,7 @@ class AuthSignUpModal extends Component {
           <ModalContent>
             <nav>
               <p>
-                Start organising your life now. Sign up for free.
+                <strong>A more organised week starts here.</strong>
               </p>
             </nav>
             <FacebookLoginButton>
