@@ -16,7 +16,6 @@ const AuthModalLi = styled.li`
     margin: 5px;
     font-family: 'Work Sans', sans-serif;
     font-weight: lighter;
-    margin-right: 20px;
     cursor: pointer;
     color: #262626;
   }
@@ -116,7 +115,7 @@ const StyledModalCloseButton = styled.button`
   `};
 `;
 
-class AuthModal extends Component {
+class AuthSignUpModal extends Component {
   constructor() {
     super();
 
@@ -138,7 +137,7 @@ class AuthModal extends Component {
   render() {
     return (
       <AuthModalLi>
-        <p onClick={this.openModal}>Log in</p>
+        <p onClick={this.openModal}>Sign up</p>
         <StyledModal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -151,10 +150,10 @@ class AuthModal extends Component {
 
           <ModalContent>
             <FacebookLoginButton>
-              <a href="/auth/facebook">Facebook Log in</a>
+              <a href="/auth/facebook">Facebook Sign Up</a>
             </FacebookLoginButton>
             <GoogleLoginButton>
-              <a href="/auth/google">Google Log in</a>
+              <a href="/auth/google">Google Sign Up</a>
             </GoogleLoginButton>
           </ModalContent>
         </StyledModal>
@@ -163,4 +162,4 @@ class AuthModal extends Component {
   }
 }
 
-export default AuthModal;
+export default AuthSignUpModal;

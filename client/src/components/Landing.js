@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { media } from '../helpers/Sizing';
-import AuthModal from './header/Modal';
+import AuthSignUpModal from './header/SignUpModal';
 
 const StyledLanding = styled.div`
   width: 100%;
@@ -11,6 +11,7 @@ const StyledLanding = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  justify-content: center;
   font-family: 'Work Sans', sans-serif;
   font-weight: lighter;
   ${media.tablet`
@@ -19,7 +20,7 @@ const StyledLanding = styled.div`
 `;
 
 const StyledSignUpButton = styled.div`
-  width: 105px;
+  width: 85px;
   height: 30px;
   background-color: #cdbcbc;
   padding: 5px;
@@ -27,7 +28,16 @@ const StyledSignUpButton = styled.div`
   border-radius: 5px;
   margin-top: 10px;
   text-align: center;
-  font-weight: bold;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  & > * p {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 15px;
+    margin: none !important;
+  }
 `;
 
 const LandingSectionOne = styled.div`
@@ -99,6 +109,7 @@ const LandingSectionTwo = styled.div`
   color: black !important;
 `;
 
+
 const Landing = () => {
   return (
     <StyledLanding>
@@ -110,7 +121,7 @@ const Landing = () => {
             Hoorah.
           </div>
           <StyledSignUpButton>
-            <AuthModal />
+            <AuthSignUpModal />
           </StyledSignUpButton>
         </div>
       </LandingSectionOne>

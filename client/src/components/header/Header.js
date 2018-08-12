@@ -41,7 +41,7 @@ const HeaderDiv = styled.div`
 //logout
 const HeaderContentRight = styled.ul`
   display: flex;
-  list-style: none;
+  list-style: none !important;
   padding: 0px !important;
   margin-right: 20px;
   & a {
