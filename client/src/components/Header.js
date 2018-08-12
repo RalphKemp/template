@@ -47,6 +47,7 @@ const HeaderContentRight = styled.ul`
   display: flex;
   list-style: none;
   padding: 0px !important;
+  margin-right: 20px;
   & a {
     text-decoration: none;
     font-size: 13px;
