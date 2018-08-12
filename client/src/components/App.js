@@ -49,6 +49,7 @@ class App extends Component {
           width: 160px;
         `};
         ${media.tablet`
+          margin-top: 8%;
           width: 200px;
         `};
         ${media.desktop`
