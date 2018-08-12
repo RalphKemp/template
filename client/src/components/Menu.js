@@ -21,7 +21,7 @@ const BurgerDiv = styled.div`
 `;
 
 const ShowMenuDiv = styled.div`
-  margin-top: 38px;
+  margin-top: 24px;
   position: absolute;
   right: 30px;
   top: 30px;
@@ -60,7 +60,10 @@ class DropDownMenu extends Component {
   }
 
   closeMenu(event) {
-    if (this.dropdownMenu.contains(event.target) || !this.dropdownMenu.contains(event.target) ) {
+    if (
+      this.dropdownMenu.contains(event.target) ||
+      !this.dropdownMenu.contains(event.target)
+    ) {
       this.setState({ showMenu: false }, () => {
         document.removeEventListener('click', this.closeMenu);
       });
@@ -74,24 +77,24 @@ class DropDownMenu extends Component {
           <FontAwesomeIcon icon="bars" color="black" size="lg" />
         </BurgerDiv>
         <ShowMenuDiv>
-        {this.state.showMenu ? (
-          <div
-            className="menu"
-            ref={element => {
-              this.dropdownMenu = element;
-            }}
-          >
-            <StyledDropDownItem key="1">
-              <Link to={'dashboard'}>dashboard</Link>
-            </StyledDropDownItem>
-            <StyledDropDownItem key="2">
-              <Link to={'about'}>about</Link>
-            </StyledDropDownItem>
-            <StyledDropDownItem key="3">
-              <a href="/api/logout">log out</a>
-            </StyledDropDownItem>
-          </div>
-        ) : null}
+          {this.state.showMenu ? (
+            <div
+              className="menu"
+              ref={element => {
+                this.dropdownMenu = element;
+              }}
+            >
+              <StyledDropDownItem key="1">
+                <Link to={'dashboard'}>dashboard</Link>
+              </StyledDropDownItem>
+              <StyledDropDownItem key="2">
+                <Link to={'about'}>about</Link>
+              </StyledDropDownItem>
+              <StyledDropDownItem key="3">
+                <a href="/api/logout">log out</a>
+              </StyledDropDownItem>
+            </div>
+          ) : null}
         </ShowMenuDiv>
       </StyledMenuDiv>
     );
