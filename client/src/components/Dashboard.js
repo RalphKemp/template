@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledDashboard = styled.div`
   width: 100%;
-  height: calc(100vh - 65px);
+  height: calc(100vh - 60px);
   background-color: #f9f9f9;
   display: flex;
   justify-content: center;

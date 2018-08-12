@@ -96,7 +96,7 @@ class App extends Component {
 
   render() {
     return (
-      <div id="main-container">
+      <div>
         <BrowserRouter>
           <div id="sub-container">
             <Header />

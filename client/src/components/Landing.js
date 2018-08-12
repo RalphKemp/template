@@ -4,7 +4,7 @@ import { media } from '../helpers/Sizing';
 
 const StyledLanding = styled.div`
   width: 100%;
-  height: calc(100vh - 65px);
+  height: calc(100vh - 60px);
   background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
