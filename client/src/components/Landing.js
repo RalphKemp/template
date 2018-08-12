@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { media } from '../helpers/Sizing';
+import AuthSignUpModal from './header/SignUpModal';
 
 const StyledLanding = styled.div`
   width: 100%;
@@ -10,11 +11,42 @@ const StyledLanding = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  justify-content: center;
   font-family: 'Work Sans', sans-serif;
   font-weight: lighter;
   ${media.tablet`
     flex-direction: row;
   `};
+`;
+
+const StyledSignUpButton = styled.div`
+  width: 75px;
+  height: 30px;
+  background-color: #cdbcbc;
+  padding: 5px;
+  color: black;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  :hover {
+    background-color: #c59c9c;
+  }
+  ${media.tablet`
+    width: 83px;
+  `};
+  & > * p {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 15px;
+    margin: none !important;
+    ${media.tablet`
+      font-size: 17px;
+    `};
+  }
 `;
 
 const LandingSectionOne = styled.div`
@@ -30,16 +62,15 @@ const LandingSectionOne = styled.div`
     font-family: 'Permanent Marker';
     font-style: normal;
     font-weight: 400;
-    src: local('Permanent Marker Regular'), local('PermanentMarker-Regular'),
-      url(https://fonts.gstatic.com/s/permanentmarker/v7/Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cf5b6jlg.woff2)
-        format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-      U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
-      U+2215, U+FEFF, U+FFFD;
+    src: url(https://fonts.gstatic.com/s/permanentmarker/v7/Fh4uPib9Iyv2ucM6pGQMWimMp004La2Cf5b6jlg.woff2)
+      format('woff2');
   }
   & > div {
     width: 250px;
     height: auto;
+    & > * {
+      margin: 12px 0px;
+    }
   }
   & > div div:first-child {
     font-size: 2.1em;
@@ -64,9 +95,7 @@ const LandingSectionOne = styled.div`
     & div:last-child {
       font-size: 21px;
     }
-  `}
-
-  ${media.tablet`
+  `} ${media.tablet`
     & > div {
       width: 400px;
       height: auto;
@@ -77,6 +106,7 @@ const LandingSectionOne = styled.div`
       line-height: 0.98;
     }
     & div:last-child {
+      margin-top: 15px !important;
       font-size: 20px;
     }
   `};
@@ -89,6 +119,7 @@ const LandingSectionTwo = styled.div`
   color: black !important;
 `;
 
+
 const Landing = () => {
   return (
     <StyledLanding>
@@ -96,9 +127,12 @@ const Landing = () => {
         <div>
           <div>ONE WEEK AT A TIME.</div>
           <div>
-            frgt is an app to note things down.<br />Simple, no? And it's free.
+            Forget is an app to note things down, and get them <strong>done.</strong><br />Simple, no? And it's free.
             Hoorah.
           </div>
+          <StyledSignUpButton>
+            <AuthSignUpModal />
+          </StyledSignUpButton>
         </div>
       </LandingSectionOne>
       <LandingSectionTwo>
