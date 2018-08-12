@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const StyledMenuDiv = styled.div`
-
-`;
+const StyledMenuDiv = styled.div``;
 
 const BurgerDiv = styled.div`
   position: relative;
@@ -25,7 +23,6 @@ const StyledDropDownItem = styled.li`
   font-size: 12px;
   text-align: left;
 `;
-
 
 class DropDownMenu extends Component {
   constructor() {
@@ -68,17 +65,15 @@ class DropDownMenu extends Component {
               this.dropdownMenu = element;
             }}
           >
-
-              <StyledDropDownItem key="1">
-                <Link to={'dashboard'}>dashboard</Link>
-              </StyledDropDownItem>
-              <StyledDropDownItem key="2">
-                <Link to={'about'}>about</Link>
-              </StyledDropDownItem>
-              <StyledDropDownItem key="3">
-                <a href="/api/logout">log out</a>
-              </StyledDropDownItem>
-
+            <StyledDropDownItem key="1">
+              <Link to={'dashboard'}>dashboard</Link>
+            </StyledDropDownItem>
+            <StyledDropDownItem key="2">
+              <Link to={'about'}>about</Link>
+            </StyledDropDownItem>
+            <StyledDropDownItem key="3">
+              <a href="/api/logout">log out</a>
+            </StyledDropDownItem>
           </div>
         ) : null}
       </StyledMenuDiv>

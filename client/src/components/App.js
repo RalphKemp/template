@@ -8,19 +8,25 @@ import Landing from './Landing';
 import Dashboard from './Dashboard';
 import About from './About';
 import styled from 'styled-components';
-import { Code } from 'react-content-loader';
+import ContentLoader from 'react-content-loader';
+import { media } from '../helpers/Sizing';
 
 //font awesome
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faKey, faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEnvelope,
+  faKey,
+  faTimes,
+  faBars
+} from '@fortawesome/free-solid-svg-icons';
 library.add(faEnvelope, faKey, faTimes, faBars);
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       loaded: false
-    }
+    };
   }
 
   async componentWillMount() {
@@ -31,21 +37,45 @@ class App extends Component {
   MyCodeLoader() {
     const StyledLoader = styled.div`
       width: 100vw;
-      height: calc(100vh - 60px);
+      height: calc(100vh - 460px);
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: #f9f9f9;
       & > * {
-        margin-left: 100px;
-        width: 100%;
-        height: auto;
-        color: #c6c6c6;
+        width: 135px;
+        margin-top: 20%;
+        ${media.mid`
+          width: 160px;
+        `};
+        ${media.tablet`
+          width: 200px;
+        `};
+        ${media.desktop`
+          font-size: 210px;
+          margin-top: 16%;
+        `};
       }
     `;
 
     return (
       <StyledLoader>
-        <Code />
+        <ContentLoader
+          height={160}
+          width={245}
+          speed={0.9}
+          primaryColor="#ebebeb"
+          secondaryColor="#d3d3d3"
+        >
+          <circle cx="10" cy="20" r="8" />
+          <rect x="25" y="15" rx="5" ry="5" width="220" height="10" />
+          <circle cx="10" cy="50" r="8" />
+          <rect x="25" y="45" rx="5" ry="5" width="220" height="10" />
+          <circle cx="10" cy="80" r="8" />
+          <rect x="25" y="75" rx="5" ry="5" width="220" height="10" />
+          <circle cx="10" cy="110" r="8" />
+          <rect x="25" y="105" rx="5" ry="5" width="220" height="10" />
+        </ContentLoader>
       </StyledLoader>
     );
   }
@@ -70,7 +100,7 @@ class App extends Component {
         <BrowserRouter>
           <div id="sub-container">
             <Header />
-            {this.state.loaded ? this.renderRoutes() : this.MyCodeLoader() }
+            {this.state.loaded ? this.renderRoutes() : this.MyCodeLoader()}
           </div>
         </BrowserRouter>
       </div>
