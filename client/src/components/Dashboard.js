@@ -33,14 +33,10 @@ class Dashboard extends Component {
   render() {
     return (
       <StyledDashboard>
-        <StyledToDoList>
-
-        </StyledToDoList>
-        <StyledCompletedToDoList>
-
-        </StyledCompletedToDoList>
+        <StyledToDoList />
+        <StyledCompletedToDoList />
       </StyledDashboard>
-    )
+    );
   }
 }
 
