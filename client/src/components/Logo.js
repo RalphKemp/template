@@ -34,12 +34,7 @@ const Logo = styled.div`
 const StyledLogo = () => {
   return (
     <Logo>
-      <p id="F">F</p>
-      <p id="O">O</p>
-      <p id="R">R</p>
-      <p id="G">G</p>
-      <p id="E">E</p>
-      <p id="T">T</p>
+      Logo
     </Logo>
   );
 };

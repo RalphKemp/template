@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { animateIn, animateOut } from '../../helpers/LogoAnimation';
 import StyledLogo from '../Logo';
 import DropDownMenu from './Menu';
 import { media } from '../../helpers/Sizing'
@@ -101,8 +100,6 @@ class Header extends Component {
         <HeaderDiv>
           <Link
             to={this.props.auth ? '/dashboard' : '/'}
-            onMouseOver={animateIn}
-            onMouseOut={animateOut}
           >
             <StyledLogo />
           </Link>
