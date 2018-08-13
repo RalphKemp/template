@@ -15,7 +15,7 @@ const StyledAbout = styled.div`
 const About = () => {
   return (
     <StyledAbout>
-      Frgt is the best app ever
+      This is the about Component.
     </StyledAbout>
   );
 }

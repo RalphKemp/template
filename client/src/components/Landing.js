@@ -22,15 +22,18 @@ const StyledLanding = styled.div`
 const StyledSignUpButton = styled.div`
   width: 75px;
   height: 30px;
-  background-color: #cdbcbc;
+  background-color: #5b5b5b;
   padding: 5px;
-  color: black;
+  color: #f9f9f9;
   border-radius: 5px;
   margin-top: 10px;
   text-align: center;
   list-style: none;
   display: flex;
   align-items: center;
+  p {
+    color: #f9f9f9;
+  }
   :hover {
     background-color: #c59c9c;
   }
@@ -52,7 +55,7 @@ const StyledSignUpButton = styled.div`
 const LandingSectionOne = styled.div`
   height: 100%;
   width: 100%;
-  background-color: #363d2f;
+  background-color: #f9f9f9;
   color: white;
   display: flex;
   justify-content: center;
@@ -66,7 +69,6 @@ const LandingSectionOne = styled.div`
       format('woff2');
   }
   & > div {
-    width: 250px;
     height: auto;
     & > * {
       margin: 12px 0px;
@@ -84,7 +86,6 @@ const LandingSectionOne = styled.div`
   }
   ${media.mid`
     & > div {
-      width: 365px;
       height: auto;
     }
     & > div div:first-child {
@@ -97,7 +98,6 @@ const LandingSectionOne = styled.div`
     }
   `} ${media.tablet`
     & > div {
-      width: 365px;
       height: auto;
     }
     & > div div:first-child {
@@ -125,11 +125,6 @@ const Landing = () => {
     <StyledLanding>
       <LandingSectionOne>
         <div>
-          <div>ONE WEEK AT A TIME.</div>
-          <div>
-            Forget is an app to note things down, and get them <strong>done.</strong><br />Simple, no? And it's free.
-            Hoorah.
-          </div>
           <StyledSignUpButton>
             <AuthSignUpModal />
           </StyledSignUpButton>

@@ -166,7 +166,7 @@ class AuthSignUpModal extends Component {
           <ModalContent>
             <nav>
               <p>
-                <strong>A more organised week starts here.</strong>
+                <strong>Your new MERN stack app. Nice!</strong>
               </p>
             </nav>
             <FacebookLoginButton>
